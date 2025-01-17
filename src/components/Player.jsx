@@ -4,15 +4,10 @@ export default function Player({ name, symbol }) {
   // useState used to know whether we are editing or not
   const [isEditing, setIsEditing] = useState(false);
 
-  // Text of the Edit button (Initially "Edit")
-  const [editButtonText, seteditButtonText] = useState("Edit");
-
   // function to handle the edit button click event
   function handleEditClick() {
     // reverse isEditing useState
     setIsEditing(!isEditing);
-    // Set Edit button's text on isEditing state
-    seteditButtonText(isEditing ? "Edit" : "Save");
   }
 
   // A playerName element with name passed as a prop
@@ -37,7 +32,7 @@ export default function Player({ name, symbol }) {
       </span>
 
       {/* An edit button */}
-      <button onClick={handleEditClick}>{editButtonText}</button>
+      <button onClick={handleEditClick}>{isEditing ? "Save" : "Edit"}</button>
     </li>
   );
 }
